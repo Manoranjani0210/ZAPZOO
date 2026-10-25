@@ -7,74 +7,144 @@
 <title>ZAPZOO — Play Something Different</title>
 <style>
 :root{
-  --cream:#fbf5ed; --paper:#fffaf4; --terracotta:#a84c43; --red:#873a34;
-  --rose:#d99a8f; --blush:#f2dcd4; --beige:#e9d5c2; --brown:#684940;
-  --ink:#3e302c; --muted:#8c756d; --shadow:0 14px 35px #6e393015;
+  --cream:#fbf5ed;--paper:#fffaf4;--terracotta:#a84c43;
+  --red:#873a34;--rose:#d99a8f;--blush:#f2dcd4;
+  --beige:#e9d5c2;--brown:#684940;--ink:#3e302c;
+  --muted:#8c756d;--shadow:0 14px 35px #6e393015;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;min-height:100vh}
+body{margin:0;background:var(--cream);color:var(--ink);
+font-family:"Trebuchet MS",system-ui,sans-serif;min-height:100vh}
 button,input{font:inherit}
 button{cursor:pointer;border:0}
-.site-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1;background:radial-gradient(circle at 12% 12%,#f2ddd1 0,transparent 25%),radial-gradient(circle at 88% 72%,#ead9ca 0,transparent 26%)}
-.site-bg:before,.site-bg:after{content:"✦  ·  ✧";position:absolute;color:#bd776a26;font-size:2.2rem;letter-spacing:2rem;transform:rotate(-18deg)}
-.site-bg:before{top:12%;left:4%}.site-bg:after{bottom:12%;right:2%;transform:rotate(14deg)}
+.site-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;
+background:radial-gradient(circle at 12% 12%,#f2ddd1,transparent 30%),
+radial-gradient(circle at 88% 72%,#ead9ca,transparent 30%)}
 .wrap{width:min(1080px,92%);margin:auto}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
 .brand{font-size:1.35rem;font-weight:900;letter-spacing:.16em;color:var(--terracotta)}
-.pill{border:1px solid #e6c9bd;background:#fff8f2;color:var(--brown);border-radius:999px;padding:9px 14px;font-size:.82rem}
-.screen{display:none;animation:rise .35s ease both}.screen.active{display:block}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.pill{border:1px solid #e6c9bd;background:#fff8f2;color:var(--brown);
+border-radius:999px;padding:9px 14px}
+.screen{display:none;animation:rise .4s ease both}
+.screen.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}
+to{opacity:1;transform:translateY(0)}}
 .hero{text-align:center;padding:clamp(36px,8vh,82px) 0 55px}
-.eyebrow{text-transform:uppercase;letter-spacing:.2em;color:var(--terracotta);font-size:.75rem;font-weight:800}
-h1{font-size:clamp(3.5rem,11vw,7.2rem);line-height:.95;margin:18px 0 14px;letter-spacing:-.07em;color:var(--terracotta)}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;color:var(--terracotta);
+font-size:.75rem;font-weight:800}
+h1{font-size:clamp(3.5rem,11vw,7.2rem);line-height:.95;
+margin:18px 0 14px;letter-spacing:-.07em;color:var(--terracotta)}
 .hero p{max-width:540px;margin:0 auto 28px;color:var(--muted);line-height:1.7}
-.primary,.secondary{border-radius:999px;padding:13px 23px;font-weight:800;transition:transform .2s,box-shadow .2s}
-.primary{background:var(--terracotta);color:#fffaf5;box-shadow:0 8px 0 #78362f,0 14px 24px #a84c4324}
-.primary:hover,.secondary:hover{transform:translateY(-2px)}
+.primary,.secondary{border-radius:999px;padding:13px 23px;font-weight:800;
+transition:transform .2s,box-shadow .2s}
+.primary{background:var(--terracotta);color:white;
+box-shadow:0 6px 0 #78362f,0 14px 24px #a84c4324}
 .secondary{background:#f2e2d8;color:var(--red);border:1px solid #e7c9bd}
-.doodle-row{font-size:1.8rem;letter-spacing:.5rem;margin:26px 0 0;opacity:.8}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:14px 0 20px}
-.section-head h2{margin:0;color:var(--brown);font-size:clamp(1.6rem,4vw,2.3rem)}
-.section-head p{margin:6px 0 0;color:var(--muted);font-size:.92rem}
-.games-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-bottom:45px}
-.game-card{background:#fffaf5;border:1px solid #ead9cb;border-radius:24px;padding:22px;box-shadow:var(--shadow);text-align:left;min-height:210px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
-.game-card:hover{transform:translateY(-5px);border-color:#cf9588}
-.game-icon{width:58px;height:58px;border-radius:19px;background:var(--blush);display:grid;place-items:center;font-size:1.8rem;margin-bottom:17px}
-.game-card h3{margin:0 0 7px;font-size:1.13rem;color:var(--brown)}
+.primary:hover,.secondary:hover{transform:translateY(-2px)}
+.section-head{display:flex;justify-content:space-between;align-items:end;
+gap:12px;margin:14px 0 20px}
+.section-head h2{margin:0;color:var(--brown);font-size:2rem}
+.section-head p{color:var(--muted)}
+.games-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+gap:16px;padding-bottom:45px}
+.game-card{background:#fffaf5;border:1px solid #ead9cb;border-radius:24px;
+padding:22px;box-shadow:var(--shadow);text-align:left;min-height:200px;
+position:relative;transition:transform .25s}
+.game-card:hover{transform:translateY(-5px)}
+.game-icon{width:58px;height:58px;border-radius:19px;background:var(--blush);
+display:grid;place-items:center;font-size:1.8rem;margin-bottom:17px}
+.game-card h3{margin:0 0 7px;color:var(--brown)}
 .game-card p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
-.card-number{position:absolute;right:18px;top:17px;font-size:.78rem;color:#c8a89b;font-weight:800}
-.panel{background:#fffaf5;border:1px solid #ead9cb;border-radius:28px;padding:clamp(18px,4vw,32px);box-shadow:var(--shadow);margin:20px auto 50px;max-width:800px}
-.game-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.game-top h2{margin:4px 0 0;color:var(--brown)}
+.card-number{position:absolute;right:18px;top:17px;color:#c8a89b;font-weight:800}
+.panel{background:#fffaf5;border:1px solid #ead9cb;border-radius:28px;
+padding:clamp(18px,4vw,32px);box-shadow:var(--shadow);
+margin:20px auto 50px;max-width:800px}
+.game-top{display:flex;justify-content:space-between;align-items:center;
+gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.game-top h2{margin:4px 0;color:var(--brown)}
 .stage-label{font-size:.78rem;color:var(--terracotta);font-weight:900;letter-spacing:.1em}
-.timer{font-variant-numeric:tabular-nums;background:#f5e6dc;border:1px solid #e7cabc;border-radius:14px;padding:9px 13px;color:var(--red);font-weight:900}
+.timer{font-variant-numeric:tabular-nums;background:#f5e6dc;
+border:1px solid #e7cabc;border-radius:14px;padding:9px 13px;color:var(--red);font-weight:900}
 .center{text-align:center}
-.big-msg{font-size:clamp(1.7rem,5vw,2.6rem);color:var(--terracotta);font-weight:900;margin:14px 0}
+.big-msg{font-size:clamp(1.7rem,5vw,2.6rem);color:var(--terracotta);
+font-weight:900;margin:14px 0}
 .muted{color:var(--muted);line-height:1.6}
 .game-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
-.grid-five{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:570px;margin:20px auto}
-.picture{background:#f7e9df;border:2px solid transparent;border-radius:20px;min-height:118px;padding:13px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;transition:.2s;color:var(--brown);font-weight:800}
-.picture .emoji{font-size:2.5rem}.picture small{font-size:.76rem;color:var(--muted)}
+.notice{background:#f5e4d9;border-radius:14px;padding:12px;color:var(--brown);
+margin:14px auto;max-width:580px;line-height:1.5}
+.ttt{display:grid;grid-template-columns:repeat(3,90px);gap:8px;justify-content:center;margin:20px auto}
+.ttt button{height:90px;border-radius:17px;background:#f3e2d8;color:var(--terracotta);
+font-size:2.4rem;font-weight:900;transition:transform .2s}
+.ttt button:disabled{opacity:.88;cursor:default}
+.ttt button.mark-x{animation:markIn .35s cubic-bezier(.2,1.5,.4,1)}
+.ttt button.mark-o{animation:markIn .45s cubic-bezier(.2,1.5,.4,1)}
+@keyframes markIn{from{opacity:0;transform:scale(.3) rotate(-20deg)}
+to{opacity:1;transform:scale(1) rotate(0)}}
+.word-tiles{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:24px 0}
+.word-tiles span{background:#f0ded3;border-radius:13px;padding:12px 14px;
+font-size:1.4rem;font-weight:900;color:var(--red);box-shadow:inset 0 -3px #dfc2b4}
+.answer{width:min(320px,100%);padding:13px 15px;border:1px solid #dfc4b7;
+border-radius:14px;background:#fffdf9;outline-color:var(--terracotta);text-transform:uppercase}
+.wheel{width:min(270px,70vw);aspect-ratio:1;border-radius:50%;margin:15px auto;
+background:conic-gradient(#a84c43 0 24deg,#e8c7b8 24deg 48deg,#bc7669 48deg 72deg,
+#f4e1d4 72deg 96deg,#965048 96deg 120deg,#ead1c2 120deg 144deg,
+#c98577 144deg 168deg,#f7e8dd 168deg 192deg,#a84c43 192deg 216deg,
+#e8c7b8 216deg 240deg,#bc7669 240deg 264deg,#f4e1d4 264deg 288deg,
+#965048 288deg 312deg,#ead1c2 312deg 336deg,#c98577 336deg);
+border:8px solid #fff8f1;box-shadow:0 8px 0 #e3c9b8,0 18px 32px #6e393020;
+display:grid;place-items:center;font-size:3.5rem;
+transition:transform 4s cubic-bezier(.12,.7,.12,1)}
+.grid-five{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+gap:12px;max-width:570px;margin:20px auto}
+.picture{background:#f7e9df;border:2px solid transparent;border-radius:20px;
+min-height:118px;padding:13px 8px;display:flex;flex-direction:column;
+align-items:center;justify-content:center;gap:7px;color:var(--brown);font-weight:800;
+transition:transform .2s,background .3s}
+.picture .emoji{font-size:2.5rem}
+.picture small{font-size:.76rem;color:var(--muted)}
 .picture:hover{transform:translateY(-3px);border-color:#dba89b}
 .picture.correct{border-color:#6e9a6d;background:#edf4e7;box-shadow:0 0 0 4px #6e9a6d20}
 .picture.wrong{border-color:#b74c43;background:#f8e5df}
 .picture:disabled{cursor:default}
 .grid-five .picture:nth-child(4){grid-column:1/2;margin-left:50%}
 .grid-five .picture:nth-child(5){grid-column:2/3;margin-left:50%}
-.ttt{display:grid;grid-template-columns:repeat(3,90px);gap:8px;justify-content:center;margin:20px auto}
-.ttt button{height:90px;border-radius:17px;background:#f3e2d8;color:var(--terracotta);font-size:2.4rem;font-weight:900}
-.ttt button:disabled{opacity:.85}
-.word-tiles{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:24px 0}
-.word-tiles span{background:#f0ded3;border-radius:13px;padding:12px 14px;font-size:1.4rem;font-weight:900;color:var(--red);box-shadow:inset 0 -3px #dfc2b4}
-.answer{width:min(320px,100%);padding:13px 15px;border:1px solid #dfc4b7;border-radius:14px;background:#fffdf9;outline-color:var(--terracotta);text-transform:uppercase}
-.wheel{width:min(270px,70vw);aspect-ratio:1;border-radius:50%;margin:15px auto;background:conic-gradient(#a84c43 0 24deg,#e8c7b8 24deg 48deg,#bc7669 48deg 72deg,#f4e1d4 72deg 96deg,#965048 96deg 120deg,#ead1c2 120deg 144deg,#c98577 144deg 168deg,#f7e8dd 168deg 192deg,#a84c43 192deg 216deg,#e8c7b8 216deg 240deg,#bc7669 240deg 264deg,#f4e1d4 264deg 288deg,#965048 288deg 312deg,#ead1c2 312deg 336deg,#c98577 336deg);border:8px solid #fff8f1;box-shadow:0 8px 0 #e3c9b8,0 18px 32px #6e393020;display:grid;place-items:center;font-size:3.5rem;transition:transform 4s cubic-bezier(.12,.7,.12,1)}
-.memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;max-width:540px;margin:20px auto}
-.memory-card{aspect-ratio:1;border-radius:15px;background:#e9d2c3;color:var(--red);font-size:clamp(1.3rem,4vw,2rem);font-weight:900;border:2px solid #e0c1b1;display:grid;place-items:center}
-.memory-card.open,.memory-card.matched{background:#fff8f1}
+.memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+gap:9px;max-width:540px;margin:20px auto}
+.memory-card{aspect-ratio:1;border-radius:18px;
+background:linear-gradient(145deg,#d99a8f,#a84c43);color:#fffaf4;
+font-size:clamp(1.4rem,4vw,2.2rem);font-weight:900;
+border:2px solid #fff2e9;display:grid;place-items:center;
+box-shadow:0 5px 0 #8f4139,0 10px 18px #6e393018;
+transition:transform .3s,background .3s,opacity .4s;
+animation:cardPop .35s both}
+.memory-card:not(.open):not(.matched)::after{content:"✦";font-size:2rem;color:#fff1df}
+.memory-card.open{background:linear-gradient(145deg,#fffaf4,#f0d9c8);
+color:var(--brown);transform:rotateY(0) scale(1.03)}
+.memory-card.matched{background:#f6eadb;opacity:.18;transform:scale(.8);pointer-events:none}
+@keyframes cardPop{from{opacity:0;transform:translateY(10px) scale(.92)}
+to{opacity:1;transform:translateY(0) scale(1)}}
+.celebrate{animation:celebrateIn .65s cubic-bezier(.2,1.3,.4,1) both}
+@keyframes celebrateIn{0%{opacity:0;transform:scale(.65) translateY(16px)}
+70%{transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+.confetti{position:fixed;top:-20px;width:9px;height:14px;z-index:99;
+pointer-events:none;animation:confettiFall 2.2s ease-in forwards}
+@keyframes confettiFall{to{transform:translate3d(var(--drift),110vh,0) rotate(780deg);opacity:.1}}
+.result-icon{display:inline-block;animation:resultBounce .9s ease-in-out infinite alternate}
+@keyframes resultBounce{to{transform:translateY(-10px) rotate(8deg)}}
 footer{text-align:center;color:#b0968b;font-size:.8rem;padding:8px 0 26px}
-.notice{background:#f5e4d9;border-radius:14px;padding:12px;color:var(--brown);margin:14px auto;max-width:580px;line-height:1.5}
-@media(max-width:760px){.games-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.game-card{padding:17px;min-height:195px}.grid-five{gap:8px}.picture{min-height:105px}.ttt{grid-template-columns:repeat(3,76px)}.ttt button{height:76px}}
-@media(max-width:450px){.games-grid{grid-template-columns:1fr}.game-card{min-height:auto}.section-head{align-items:start;flex-direction:column}.grid-five{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-five .picture:nth-child(4),.grid-five .picture:nth-child(5){grid-column:auto;margin-left:0}.memory-grid{gap:6px}.memory-card{border-radius:11px}}
+@media(max-width:760px){
+.games-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.game-card{padding:17px;min-height:180px}
+.grid-five{gap:8px}.picture{min-height:105px}
+.ttt{grid-template-columns:repeat(3,76px)}.ttt button{height:76px}
+}
+@media(max-width:450px){
+.games-grid{grid-template-columns:1fr}
+.section-head{align-items:start;flex-direction:column}
+.grid-five{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-five .picture:nth-child(4),.grid-five .picture:nth-child(5){grid-column:auto;margin-left:0}
+.memory-grid{gap:6px}.memory-card{border-radius:11px}
+}
 </style>
 </head>
 <body>
@@ -84,100 +154,793 @@ footer{text-align:center;color:#b0968b;font-size:.8rem;padding:8px 0 26px}
   <button class="pill" onclick="goHome()">Home ↗</button>
 </header>
 <main class="wrap">
-  <section id="home" class="screen active">
-    <div class="hero">
-      <div class="eyebrow">A little play, a little chaos</div>
-      <h1>ZAPZOO</h1>
-      <p>Five playful challenges, one cozy corner of the internet. Pick a game, trust your instincts, and have fun.</p>
-      <button class="primary" onclick="showGames()">START&nbsp; →</button>
-      <div class="doodle-row" aria-hidden="true">✦ ♡ ☁︎ ◇ ✿</div>
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="eyebrow">A little play, a little chaos</div>
+    <h1>ZAPZOO</h1>
+    <p>Five playful challenges, one cozy corner of the internet. Pick a game, trust your instincts, and have fun.</p>
+    <button class="primary" onclick="showGames()">START</button>
+    <div class="doodle-row">✦　✧　✦</div>
+  </div>
+</section>
+<section id="games" class="screen">
+  <div class="section-head">
+    <div><h2>Choose your chaos</h2><p>Five games. Five different kinds of fun.</p></div>
+  </div>
+  <div class="games-grid">
+    <button class="game-card" onclick="startGame('ttt')"><span class="card-number">01</span><div class="game-icon">⭕</div><h3>Tic-Tac-Toe</h3><p>Play against the computer and clear five stages.</p></button>
+    <button class="game-card" onclick="startGame('unscramble')"><span class="card-number">02</span><div class="game-icon">🔤</div><h3>Unscramble</h3><p>Unscramble a new five-letter word at every stage.</p></button>
+    <button class="game-card" onclick="startGame('spin')"><span class="card-number">03</span><div class="game-icon">🎡</div><h3>Spin the Chaos</h3><p>Spin, accept a fun dare, or choose to pass.</p></button>
+    <button class="game-card" onclick="startGame('memory')"><span class="card-number">04</span><div class="game-icon">🦊</div><h3>Memory Match</h3><p>Find every matching animal pair before time runs out.</p></button>
+    <button class="game-card" onclick="startGame('imposter')"><span class="card-number">05</span><div class="game-icon">🕵️</div><h3>Imposter</h3><p>Spot the picture that doesn't belong.</p></button>
+  </div>
+</section>
+<section id="play" class="screen">
+  <div class="panel">
+    <div class="game-top">
+      <div><div id="stage" class="stage-label">STAGE 01 / 05</div><h2 id="gameTitle">Game</h2></div>
+      <div id="timer" class="timer" hidden>00:30</div>
     </div>
-  </section>
-  <section id="games" class="screen">
-    <div class="section-head"><div><h2>Choose your game</h2><p>Which little challenge is calling you?</p></div><span class="pill">05 GAMES</span></div>
-    <div class="games-grid">
-      <button class="game-card" onclick="startGame('ttt')"><span class="card-number">01</span><div class="game-icon">⭕</div><h3>Tic-Tac-Toe</h3><p>A tiny grid. A clever opponent. Can you win five stages?</p></button>
-      <button class="game-card" onclick="startGame('unscramble')"><span class="card-number">02</span><div class="game-icon">🔤</div><h3>Unscramble</h3><p>Untangle five-letter words before the clock runs out.</p></button>
-      <button class="game-card" onclick="startGame('spin')"><span class="card-number">03</span><div class="game-icon">🎡</div><h3>Spin the Chaos</h3><p>Spin, accept the dare, and bring the energy.</p></button>
-      <button class="game-card" onclick="startGame('memory')"><span class="card-number">04</span><div class="game-icon">🐻</div><h3>Memory Match</h3><p>Remember the pictures and find every matching pair.</p></button>
-      <button class="game-card" onclick="startGame('imposter')"><span class="card-number">05</span><div class="game-icon">🕵️</div><h3>Imposter</h3><p>Spot the odd one out. Every second counts.</p></button>
-    </div>
-  </section>
-
-  <section id="play" class="screen">
-    <div class="panel">
-      <div class="game-top">
-        <div><div class="stage-label" id="stage">READY TO PLAY</div><h2 id="gameTitle">Game</h2></div>
-        <div class="timer" id="timer" hidden>00:30</div>
-      </div>
-      <div id="gameContent"></div>
-      <div class="game-actions" id="gameActions"></div>
-    </div>
-  </section>
+    <div id="gameContent"></div>
+    <div id="gameActions" class="game-actions"></div>
+  </div>
+</section>
 </main>
-<footer class="wrap">Made with a little warmth and a lot of play · ZAPZOO</footer>
+<footer class="wrap">ZAPZOO · Play kindly · Have fun</footer>
 <script>
-const $ = id => document.getElementById(id);
-let activeGame='', stage=1, timerId=null, seconds=0, gameState={}, busy=false;
-const titles={ttt:'Tic-Tac-Toe',unscramble:'Unscramble',spin:'Spin the Chaos',memory:'Memory Match',imposter:'Imposter'};
-function screen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
-function showGames(){screen('games')}
-function goHome(){stopTimer();screen('home')}
+const $=id=>document.getElementById(id);
+let activeGame="",stage=1,timerId=null,seconds=0,gameState={},busy=false;
+function confettiBurst(count=55){
+ const colors=["#a84c43","#e6b7a7","#e8d5a7","#fff3dc","#bd776a","#8d9b79"];
+ for(let i=0;i<count;i++){
+  const bit=document.createElement("i");bit.className="confetti";
+  bit.style.left=Math.random()*100+"vw";
+  bit.style.background=colors[Math.floor(Math.random()*colors.length)];
+  bit.style.borderRadius=Math.random()>.5?"50%":"2px";
+  bit.style.setProperty("--drift",(Math.random()-.5)*260+"px");
+  bit.style.animationDelay=Math.random()*.45+"s";
+  document.body.appendChild(bit);setTimeout(()=>bit.remove(),3000);
+ }
+}
+const titles={ttt:"Tic-Tac-Toe",unscramble:"Unscramble",spin:"Spin the Chaos",memory:"Memory Match",imposter:"Imposter"};
+function screen(id){
+ document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+ $(id).classList.add("active");window.scrollTo({top:0,behavior:"smooth"});
+}
+function showGames(){screen("games")}
+function goHome(){stopTimer();screen("home")}
 function backHomeButton(){return `<button class="primary" onclick="goHome()">BACK TO ZAPZOO</button>`}
-function stopTimer(){if(timerId){clearInterval(timerId);timerId=null} $('timer').hidden=true}
-function startTimer(n,onEnd){stopTimer();seconds=n;$('timer').hidden=false;updateTimer();timerId=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){stopTimer();onEnd()}},1000)}
-function updateTimer(){$('timer').textContent=`00:${String(Math.max(0,seconds)).padStart(2,'0')}`;$('timer').style.background=seconds<=5?'#f4d2ca':'#f5e6dc'}
-function setActions(html=''){$('gameActions').innerHTML=html}
-function intro(g,s,d,callback){$('stage').textContent=`STAGE ${String(s).padStart(2,'0')} / 05 · ${d.toUpperCase()}`;$('gameContent').innerHTML=`<div class="center"><div class="big-msg">${g==='imposter'?'Find the odd one out':g==='memory'?'Remember the pictures':g==='unscramble'?'Unscramble the word':'Ready?'}</div><p class="muted">Get ready for Stage ${s} — ${d}. Let’s go!</p></div>`;setActions(`<button class="primary" id="beginBtn">LET'S PLAY</button>`);$('beginBtn').onclick=callback}
-const diffs=['Easy','Moderate','Hard','Very Tough','Extreme'];
-function startGame(g){activeGame=g;stage=1;gameState={};stopTimer();screen('play');$('gameTitle').textContent=titles[g];setActions('');if(g==='ttt')tttIntro();if(g==='unscramble')wordIntro();if(g==='spin')spinStart();if(g==='memory')memoryIntro();if(g==='imposter')imposterIntro()}
-function winAll(label){stopTimer();$('stage').textContent='VICTORY';$('gameContent').innerHTML=`<div class="center"><div style="font-size:4rem">🏆</div><div class="big-msg">YOU WIN!</div><h3>ALL 5 STAGES COMPLETED</h3><p class="muted">Achievement unlocked: <b>${label}</b></p><p class="doodle-row">✦ ✧ ✦</p></div>`;setActions(backHomeButton())}
-function gameOver(message='Oops! Best luck next time.'){stopTimer();$('stage').textContent='RUN COMPLETE';$('gameContent').innerHTML=`<div class="center"><div style="font-size:3.5rem">☁️</div><div class="big-msg">GAME OVER</div><p class="muted">${message}</p></div>`;setActions(backHomeButton())}
+function stopTimer(){if(timerId){clearInterval(timerId);timerId=null} $("timer").hidden=true}
+function startTimer(n,onEnd){
+ stopTimer();seconds=n;$("timer").hidden=false;updateTimer();
+ timerId=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){stopTimer();onEnd()}},1000);
+}
+function updateTimer(){
+ $("timer").textContent=`00:${String(Math.max(0,seconds)).padStart(2,"0")}`;
+ $("timer").style.background=seconds<=5?"#f4d2ca":"#f5e6dc";
+}
+function setActions(html=""){$("gameActions").innerHTML=html}
+function intro(g,s,d,callback){
+ $("stage").textContent=`STAGE ${String(s).padStart(2,"0")} / 05 · ${d.toUpperCase()}`;
+ $("gameContent").innerHTML=`<div class="center"><div class="big-msg">${g==="imposter"?"Find the odd one out":g==="memory"?"Remember the pictures":g==="unscramble"?"Unscramble the word":"Ready?"}</div><p class="muted">Get ready for Stage ${s} — ${d}. Let's go!</p></div>`;
+ setActions(`<button class="primary" id="beginBtn">LET'S PLAY</button>`);
+ $("beginBtn").onclick=callback;
+}
+const diffs=["Easy","Moderate","Hard","Very Tough","Extreme"];
+function startGame(g){
+ activeGame=g;stage=1;gameState={};stopTimer();screen("play");
+ $("gameTitle").textContent=titles[g];setActions("");
+ if(g==="ttt")tttIntro();
+ if(g==="unscramble")wordIntro();
+ if(g==="spin")spinStart();
+ if(g==="memory")memoryIntro();
+ if(g==="imposter")imposterIntro();
+}
+function winAll(label){
+ stopTimer();confettiBurst(100);$("stage").textContent="VICTORY";
+ $("gameContent").innerHTML=`<div class="center celebrate"><div class="result-icon" style="font-size:4.5rem">🏆</div><div class="big-msg">YOU WIN!</div><h3>ALL 5 STAGES COMPLETED</h3><p class="muted">Achievement unlocked: <b>${label}</b></p><p style="font-size:2rem">✦ ✧ ✦</p></div>`;
+ setActions(backHomeButton());
+}
+function gameOver(message="Oops! Best luck next time."){
+ stopTimer();confettiBurst(10);$("stage").textContent="RUN COMPLETE";
+ $("gameContent").innerHTML=`<div class="center celebrate"><div class="result-icon" style="font-size:3.8rem">🌧️</div><div class="big-msg">GAME OVER</div><p class="muted">${message}</p><p style="font-size:2rem">☁︎ · ✧ · ☁︎</p></div>`;
+ setActions(backHomeButton());
+}
+/* ===== PART 2: TIC-TAC-TOE ===== */
+function tttIntro(){
+ stage=1;gameState={draws:0};
+ intro("ttt",stage,diffs[0],()=>tttBoard());
+}
+function tttBoard(){
+ stopTimer();
+ gameState.board=Array(9).fill("");
+ gameState.turn="X";
+ gameState.lock=false;
+ $("stage").textContent=`STAGE ${String(stage).padStart(2,"0")} / 05 · ${diffs[stage-1].toUpperCase()}`;
+ renderTTT();
+}
+function renderTTT(){
+ $("gameContent").innerHTML=`
+ <div class="center">
+ <p class="muted">You are X · Computer is O · Draws: ${gameState.draws||0}/3</p>
+ <div class="ttt">${gameState.board.map((v,i)=>
+ `<button class="${v==="X"?"mark-x":v==="O"?"mark-o":""}"
+ ${v||gameState.lock?"disabled":""} onclick="tttMove(${i})">${v}</button>`
+ ).join("")}</div>
+ <p class="muted">${gameState.lock?"Thinking...":"Your turn — choose a square."}</p>
+ </div>`;
+ setActions(`<button class="secondary" onclick="goHome()">HOME</button>`);
+}
+const wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+function tttResult(b){
+ for(const line of wins)
+  if(b[line[0]]&&b[line[0]]===b[line[1]]&&b[line[1]]===b[line[2]])return b[line[0]];
+ return b.every(Boolean)?"draw":null;
+}
+function tttMove(i){
+ if(gameState.lock||gameState.board[i]||!activeGame||activeGame!=="ttt")return;
+ gameState.board[i]="X";
+ const result=tttResult(gameState.board);
+ if(result){tttFinish(result);return}
+ gameState.lock=true;renderTTT();
+ setTimeout(()=>{
+  if(activeGame!=="ttt")return;
+  const move=computerMove(gameState.board,stage);
+  if(move>=0)gameState.board[move]="O";
+  const result=tttResult(gameState.board);
+  if(result){tttFinish(result);return}
+  gameState.lock=false;renderTTT();
+ },3000);
+}
+function computerMove(board,level){
+ const empty=board.map((v,i)=>v? -1:i).filter(i=>i>=0);
+ if(!empty.length)return -1;
+ const test=(mark)=>{
+  for(const i of empty){const b=board.slice();b[i]=mark;if(tttResult(b)===mark)return i}
+  return -1;
+ };
+ if(level>=2){const win=test("O");if(win>=0)return win}
+ if(level>=2){const block=test("X");if(block>=0)return block}
+ if(level>=3){
+  for(const i of empty){
+   const b=board.slice();b[i]="O";
+   const threats=b.map((v,j)=>{if(v||j===i)return -1;const c=b.slice();c[j]="O";return tttResult(c)==="O"?j:-1}).filter(j=>j>=0);
+   if(threats.length)return i;
+  }
+ }
+ if(board[4]==="")return 4;
+ const corners=[0,2,6,8].filter(i=>board[i]==="");
+ if(corners.length&&level>=2)return corners[Math.floor(Math.random()*corners.length)];
+ return empty[Math.floor(Math.random()*empty.length)];
+}
+function tttFinish(result){
+ gameState.lock=true;
+ if(result==="draw"){
+  gameState.draws=(gameState.draws||0)+1;
+  if(gameState.draws>=3){
+   gameOver("Three draws! Better luck next time.");
+   return;
+  }
+  $("gameContent").innerHTML=`<div class="center celebrate"><div class="big-msg">DRAW!</div><p class="muted">Draw ${gameState.draws} of 3. Let's play again!</p></div>`;
+  setActions(`<button class="primary" onclick="tttBoard()">PLAY AGAIN</button>`);
+  return;
+ }
+ if(result==="X"){
+  confettiBurst(45);
+  $("gameContent").innerHTML=`<div class="center celebrate"><div class="result-icon" style="font-size:4rem">🎉</div><div class="big-msg">YOU WIN!</div><p class="muted">Great move!</p></div>`;
+  if(stage>=5){setTimeout(()=>{if(activeGame==="ttt")winAll("TIC-TAC-TOE MASTER")},900)}
+  else setActions(`<button class="primary" onclick="stage++;tttIntro()">NEXT STAGE</button>`);
+ }else gameOver("The computer won this round. Better luck next time!");
+}
 
-// Tic Tac Toe
-function tttIntro(){intro('ttt',stage,diffs[stage-1],tttBegin)}
-function tttBegin(){gameState={board:Array(9).fill(''),turn:'X',ended:false};renderTTT();startTimer(30,()=>gameOver('Time ran out. Better luck next time!'))}
-function renderTTT(){const b=gameState.board;$('gameContent').innerHTML=`<div class="center"><p class="muted">You are <b>X</b>. Make three in a row.</p><div class="ttt">${b.map((v,i)=>`<button onclick="tttMove(${i})" ${v||gameState.ended?'disabled':''}>${v}</button>`).join('')}</div><div class="muted" id="tttStatus">${gameState.ended?'Round complete':'Your turn'}</div></div>`;setActions('')}
-function winner(b){for(const [a,c,d] of [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]])if(b[a]&&b[a]===b[c]&&b[a]===b[d])return b[a];return b.every(Boolean)?'draw':null}
-function tttMove(i){if(gameState.board[i]||gameState.ended)return;gameState.board[i]='X';let w=winner(gameState.board);if(w){tttEnd(w);return}let empty=gameState.board.map((v,j)=>v?null:j).filter(v=>v!==null);if(empty.length){let pick;if(stage===1)pick=empty[Math.floor(Math.random()*empty.length)];else{pick=empty.find(j=>wouldWin(gameState.board,j,'O'));if(pick===undefined)pick=empty.find(j=>wouldWin(gameState.board,j,'X'));if(pick===undefined)pick=empty.includes(4)?4:empty[Math.floor(Math.random()*empty.length)];}gameState.board[pick]='O'}w=winner(gameState.board);if(w)tttEnd(w);else renderTTT()}
-function wouldWin(b,i,p){let c=b.slice();c[i]=p;return winner(c)===p}
-function tttEnd(w){gameState.ended=true;stopTimer();if(w==='X'){if(stage===5)winAll('TIC-TAC-TOE MASTER');else{$('gameContent').innerHTML=`<div class="center"><div class="big-msg">STAGE CLEARED!</div><p class="muted">Nice move! Ready for the next level?</p></div>`;setActions(`<button class="primary" onclick="stage++;tttIntro()">NEXT STAGE →</button>`)} }else gameOver(w==='draw'?'It was a draw — this run ends here.':'The computer won this round.');}
-
-// Unscramble
-const wordPools=[['PLANT','BREAD','CHAIR','SMILE','GRAPE','CLOUD'],['BRIDGE','PLANET','SILVER','POCKET','STREAM'],['PUZZLE','JUNGLE','MARBLE','CASTLE','THRONE'],['QUARTZ','SPHINX','VELVET','CIPHER','FOSSIL'],['WIZARD','OXYGEN','ZEPHYR','NYMPH','VORTEX']];
-function shuffleWord(w){let a=w.split('');for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}if(a.join('')===w)a.push(a.shift());return a.join('')}
-function wordIntro(){intro('unscramble',stage,diffs[stage-1],wordBegin)}
-function wordBegin(){let pool=wordPools[stage-1].filter(w=>w.length===5);let answer=pool[Math.floor(Math.random()*pool.length)];let scrambled=shuffleWord(answer);gameState={answer,scrambled};$('gameContent').innerHTML=`<div class="center"><p class="muted">Put the five letters in the right order.</p><div class="word-tiles">${scrambled.split('').map(l=>`<span>${l}</span>`).join('')}</div><input class="answer" id="wordAnswer" maxlength="5" placeholder="TYPE YOUR ANSWER" autocomplete="off" /><div id="wordMsg" class="muted" style="margin-top:10px"></div></div>`;setActions(`<button class="primary" onclick="checkWord()">SUBMIT ANSWER</button>`);startTimer(30,()=>gameOver(`Time's up! The word was ${gameState.answer}.`));$('wordAnswer').focus()}
-function checkWord(){if($('wordAnswer').value.trim().toUpperCase()===gameState.answer){stopTimer();if(stage===5)winAll('UNSCRAMBLE MASTER');else{$('gameContent').innerHTML=`<div class="center"><div class="big-msg">CORRECT! ✨</div><p class="muted">${gameState.answer} — well done!</p></div>`;setActions(`<button class="primary" onclick="stage++;wordIntro()">NEXT STAGE →</button>`)} }else gameOver(`Not quite! The word was ${gameState.answer}.`);}
-
-// Spin the Chaos
-const dares=['Freestyle dance for two minutes!','Do a two-minute comedy show.','Act like a famous actor for two minutes.','Present funny news for two minutes.','Advertise an imaginary product.','Sing your favourite song.','Give an imaginary award speech.','Recreate a movie scene in your own style.','Friendly imitation—with their permission!','Interview a friend in a funny way.','Recreate a movie scene with friends.','Act out a funny scene with a friend.','Sing a duet with a friend.','Try a dance challenge together.','Perform an imaginary travel vlog.'];
-function spinStart(){$('stage').textContent='ONE SPIN · ONE CHALLENGE';$('gameContent').innerHTML=`<div class="center"><div class="big-msg">Spin the Chaos</div><p class="muted">Spin the wheel to discover your challenge. You can always say no.</p><div class="wheel" id="wheel">✦</div></div>`;setActions(`<button class="primary" onclick="spinWheel()">SPIN THE WHEEL</button>`)}
-function spinWheel(){if(busy)return;busy=true;const w=$('wheel');const idx=Math.floor(Math.random()*dares.length);w.style.transform=`rotate(${1440+Math.random()*360}deg)`;setTimeout(()=>{busy=false;gameState.dare=dares[idx];$('gameContent').innerHTML=`<div class="center"><div class="big-msg">YOUR DARE</div><p class="muted">${gameState.dare}</p><div style="font-size:2.5rem">🎲</div></div>`;setActions(`<button class="primary" onclick="acceptDare()">ACCEPT</button><button class="secondary" onclick="gameOver('Oops! Better luck next time!')">DENY</button>`)},4000)}
-function acceptDare(){$('stage').textContent='CHALLENGE TIME';$('gameContent').innerHTML=`<div class="center"><div class="big-msg">COME ON! DO IT!</div><p class="muted">${gameState.dare}</p><div style="font-size:2.8rem">⚡</div><div class="muted" id="encourage">You got this!</div></div>`;setActions('');startTimer(120,()=>{$('stage').textContent='CHALLENGE COMPLETE';$('gameContent').innerHTML=`<div class="center"><div style="font-size:4rem">🎉</div><div class="big-msg">CHALLENGE COMPLETE!</div><p class="muted">Wild energy. Nicely done!</p></div>`;setActions(backHomeButton())});}
-
-// Memory Match
-const animals=['🦊','🐼','🐻','🐱','🐰','🐸','🐶','🐨','🦁','🐯','🐧','🦄'];
-function memoryIntro(){intro('memory',stage,diffs[stage-1],memoryBegin)}
-function memoryBegin(){let pairs=stage*2+2;let vals=animals.slice(0,pairs);let deck=[...vals,...vals].sort(()=>Math.random()-.5);gameState={deck,open:[],matched:new Set(),lock:false};renderMemory();startTimer(60,()=>{document.querySelectorAll('.memory-card').forEach((b,i)=>{b.textContent=deck[i];b.classList.add('open')});setTimeout(()=>gameOver('Time ran out. Keep practising your memory!'),1000)})}
-function renderMemory(){$('gameContent').innerHTML=`<p class="muted center">Find all matching animal pairs.</p><div class="memory-grid" style="grid-template-columns:repeat(${stage>=4?6:stage>=3?4:4},minmax(0,1fr))">${gameState.deck.map((v,i)=>`<button class="memory-card ${gameState.matched.has(i)?'matched':''}" onclick="flipMemory(${i})" ${gameState.matched.has(i)?'disabled':''}>${gameState.matched.has(i)?'':gameState.open.includes(i)?v:'✦'}</button>`).join('')}</div><p class="muted center">${gameState.matched.size/2} / ${gameState.deck.length/2} pairs found</p>`;setActions('')}
-function flipMemory(i){if(gameState.lock||gameState.matched.has(i)||gameState.open.includes(i))return;gameState.open.push(i);renderMemory();if(gameState.open.length===2){let [a,b]=gameState.open;if(gameState.deck[a]===gameState.deck[b]){gameState.matched.add(a);gameState.matched.add(b);gameState.open=[];renderMemory();if(gameState.matched.size===gameState.deck.length){stopTimer();if(stage===5)winAll('MEMORY MASTER');else{$('gameContent').innerHTML=`<div class="center"><div class="big-msg">STAGE CLEARED! ✨</div></div>`;setActions(`<button class="primary" onclick="stage++;memoryIntro()">NEXT STAGE →</button>`)}}}else{gameState.lock=true;setTimeout(()=>{gameState.open=[];gameState.lock=false;renderMemory()},700)}}}
-
-// Imposter
-const imposterSets=[
- [{e:'🐊',n:'Alligator'},{e:'🐊',n:'Crocodile'},{e:'🐸',n:'Frog'},{e:'🦀',n:'Crab'},{e:'🐟',n:'Fish'}],
- [{e:'🍎',n:'Apple'},{e:'🍌',n:'Banana'},{e:'🍇',n:'Grapes'},{e:'🥕',n:'Carrot'},{e:'🍓',n:'Strawberry'}],
- [{e:'🚗',n:'Car'},{e:'🚌',n:'Bus'},{e:'🚲',n:'Bicycle'},{e:'🚂',n:'Train'},{e:'✈️',n:'Airplane'}],
- [{e:'✏️',n:'Pencil'},{e:'📘',n:'Book'},{e:'✂️',n:'Scissors'},{e:'🧴',n:'Bottle'},{e:'📏',n:'Ruler'}],
- [{e:'🌳',n:'Tree'},{e:'🌸',n:'Flower'},{e:'🍄',n:'Mushroom'},{e:'🌊',n:'Ocean'},{e:'🌋',n:'Volcano'}]
+/* ===== PART 2: UNSCRAMBLE ===== */
+const wordBank=[
+ ["HEART","EARTH","NIGHT","THING","BREAD","PLANT","SMILE","GRAPE","CHAIR","CLOUD"],
+ ["BRAVE","TRACE","LEMON","STONE","DREAM","SHARE","TRAIN","SHELF","CRANE","ROAST"],
+ ["QUIET","FLAME","PRIDE","SCALE","GHOST","CRISP","BLEND","CHARM","GIANT","FLOAT"],
+ ["VIVID","QUILT","THORN","SWIRL","GLEAM","CRAVE","PLUMB","DWARF","SCOUT","FLAIR"],
+ ["ABYSS","NYMPH","GLYPH","QUARK","VEXED","ZESTY","JOUST","PIXEL","FJORD","WALTZ"]
 ];
-const oddAnswers=[3,3,4,3,3];
-const explanations=['A crab is not a reptile like the other animal examples.','A carrot is a vegetable; the others are fruits.','An airplane travels through the air; the others are ground transport.','A bottle is a container; the others are stationery or school tools.','The ocean is a body of water; the others are individual natural features or organisms.'];
-function imposterIntro(){intro('imposter',stage,diffs[stage-1],imposterBegin)}
-function imposterBegin(){gameState={answered:false};let set=imposterSets[stage-1].map((x,i)=>({...x,original:i})).sort(()=>Math.random()-.5);gameState.set=set;gameState.odd=oddAnswers[stage-1];$('gameContent').innerHTML=`<p class="muted center">One picture doesn't belong. Trust your logic.</p><div class="grid-five">${set.map((x,i)=>`<button class="picture" onclick="chooseImposter(${i})"><span class="emoji">${x.e}</span><span>${x.n}</span><small>OPTION ${String.fromCharCode(65+i)}</small></button>`).join('')}</div>`;startTimer(30,()=>imposterTimeout());setActions('')}
-function revealImposter(timedOut=false,chosen=-1){stopTimer();gameState.answered=true;document.querySelectorAll('.picture').forEach((b,i)=>{b.disabled=true;if(gameState.set[i].original===gameState.odd)b.classList.add('correct');else if(i===chosen)b.classList.add('wrong')});$('gameContent').insertAdjacentHTML('beforeend',`<div class="notice center"><b>${timedOut?'TIME’S UP!':'ODD ONE OUT!'}</b><br>${explanations[stage-1]}</div>`);if(timedOut){setTimeout(()=>gameOver('Oops! Best luck next time.'),1800);setActions('')}else if(stage===5){setActions(`<button class="primary" onclick="winAll('IMPOSTER MASTER')">FINISH →</button>`)}else{setActions(`<button class="primary" onclick="stage++;imposterIntro()">NEXT STAGE →</button>`)}}
-function chooseImposter(i){if(gameState.answered)return;if(gameState.set[i].original===gameState.odd)revealImposter(false,i);else{stopTimer();gameState.answered=true;revealImposter(false,i);setTimeout(()=>gameOver('Oops! Best luck next time.'),1700)}}
-function imposterTimeout(){revealImposter(true)}
-</script>
-</body>
-</html>
+function shuffleWord(word){
+ let a=word.split("");
+ for(let i=a.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];
+ }
+ if(a.join("")===word)a.push(a.shift());
+ return a.join("");
+}
+function pickWord(){
+ const pool=wordBank[stage-1];
+ const available=pool.filter(w=>!gameState.used?.includes(w));
+ if(!available.length)gameState.used=[];
+ const list=pool.filter(w=>!gameState.used.includes(w));
+ const answer=list[Math.floor(Math.random()*list.length)];
+ gameState.used.push(answer);
+ let scrambled=shuffleWord(answer);
+ while(scrambled===answer)scrambled=shuffleWord(answer);
+ return {answer,scrambled};
+}
+function wordIntro(){
+ stopTimer();
+ intro("unscramble",stage,diffs[stage-1],wordStart);
+}
+function wordStart(){
+ const item=pickWord();
+ gameState.answer=item.answer;
+ $("stage").textContent=`STAGE ${String(stage).padStart(2,"0")} / 05 · ${diffs[stage-1].toUpperCase()}`;
+ $("gameContent").innerHTML=`
+ <div class="center">
+ <p class="muted">Unscramble these five letters!</p>
+ <div class="word-tiles">${item.scrambled.split("").map(ch=>`<span>${ch}</span>`).join("")}</div>
+ <input id="wordAnswer" class="answer" maxlength="5" placeholder="TYPE YOUR ANSWER" autocomplete="off" spellcheck="false">
+ <p id="wordFeedback" class="muted">You have 30 seconds.</p>
+ </div>`;
+ setActions(`<button class="primary" onclick="checkWord()">SUBMIT ANSWER</button>`);
+ $("wordAnswer").addEventListener("keydown",e=>{if(e.key==="Enter")checkWord()});
+ startTimer(30,()=>gameOver("Time's up! Best of luck next time."));
+ $("wordAnswer").focus();
+}
+function checkWord(){
+ if(activeGame!=="unscramble"||busy)return;
+ const input=$("wordAnswer");
+ if(!input)return;
+ if(input.value.trim().toUpperCase()!==gameState.answer){
+  $("wordFeedback").textContent="Not quite! Try another answer.";
+  input.classList.remove("wrong");
+  void input.offsetWidth;
+  input.classList.add("wrong");
+  return;
+ }
+ busy=true;stopTimer();confettiBurst(25);
+ $("wordFeedback").textContent="Correct! ✨";
+ $("gameContent").classList.add("celebrate");
+ setActions("");
+ setTimeout(()=>{
+  busy=false;
+  if(activeGame!=="unscramble")return;
+  if(stage>=5)winAll("UNSCRAMBLE MASTER");
+  else{stage++;wordIntro()}
+ },1100);
+}
+
+/* ===== PART 2: SPIN THE CHAOS ===== */
+const dares=[
+ "2 minutes nonstop freestyle dance pannu — un best moves ellam kaattu!",
+ "2 minutes comedy show pannu — audience-a sirikka vaikka try pannu!",
+ "2 minutes famous actor maadhiri voice and expressions use panni act pannu!",
+ "2 minutes funny news anchor maadhiri news present pannu!",
+ "2 minutes imaginary product-ku creative advertisement pannu!",
+ "2 minutes un favourite song-a sing pannu!",
+ "2 minutes imaginary award acceptance speech kudu!",
+ "2 minutes oru famous movie scene-a un own style-la recreate pannu!",
+ "2 minutes friend-oda permission-oda avanga style-a friendly-ah imitate pannu!",
+ "2 minutes oru friend-kku comedy interview edu!",
+ "2 minutes friends kooda oru movie scene recreate pannu!",
+ "2 minutes oru friend-oda serndhu funny scene act pannu!",
+ "2 minutes rendu perum serndhu song duet sing pannu!",
+ "2 minutes oru friend-oda serndhu dance challenge pannu!",
+ "2 minutes friends kooda imaginary travel vlog perform pannu!"
+];
+function spinStart(){
+ stopTimer();busy=false;
+ $("stage").textContent="SPIN THE CHAOS";
+ $("gameContent").innerHTML=`
+ <div class="center">
+ <p class="muted">Spin the wheel and see what fate has planned!</p>
+ <div class="wheel" id="chaosWheel">✦</div>
+ <p class="muted">15 dares · Repeat challenges are possible.</p>
+ </div>`;
+ setActions(`<button class="primary" id="spinBtn" onclick="spinWheel()">SPIN!</button>`);
+}
+function spinWheel(){
+ if(busy)return;
+ busy=true;
+ const wheel=$("chaosWheel");
+ const btn=$("spinBtn");
+ if(!wheel||!btn)return;
+ btn.disabled=true;
+ const choice=Math.floor(Math.random()*dares.length);
+ const rotations=1440+Math.random()*720+choice*24;
+ wheel.style.transform=`rotate(${rotations}deg)`;
+ setTimeout(()=>{
+  if(activeGame!=="spin")return;
+  busy=false;gameState.dare=dares[choice];
+  $("gameContent").innerHTML=`
+   <div class="center celebrate">
+    <div class="result-icon" style="font-size:3rem">🎯</div>
+    <div class="big-msg">YOUR DARE!</div>
+    <p class="muted">${gameState.dare}</p>
+   </div>`;
+  setActions(`<button class="primary" onclick="acceptDare()">ACCEPT</button>
+  <button class="secondary" onclick="denyDare()">DENY</button>`);
+ },4000);
+}
+function acceptDare(){
+ $("gameContent").innerHTML=`
+ <div class="center celebrate">
+ <div class="big-msg">COME ON! DO IT!</div>
+ <p class="muted">${gameState.dare}</p>
+ <div id="dareCountdown" class="timer" style="font-size:2rem">02:00</div>
+ <p id="dareEncouragement" class="muted">You've got this!</p>
+ </div>`;
+ setActions("");
+ stopTimer();seconds=120;
+ $("timer").hidden=true;
+ const messages=["Keep going! ✨","Amazing energy!","You can do it!","Almost there!"];
+ const el=$("dareCountdown");
+ const interval=setInterval(()=>{
+  if(activeGame!=="spin"){clearInterval(interval);return}
+  seconds--;
+  if(el)el.textContent=`${String(Math.floor(seconds/60)).padStart(2,"0")}:${String(seconds%60).padStart(2,"0")}`;
+  const encouragement=$("dareEncouragement");
+  if(encouragement&&seconds%20===0)encouragement.textContent=messages[Math.floor(Math.random()*messages.length)];
+  if(seconds<=0){
+   clearInterval(interval);confettiBurst(70);
+   $("gameContent").innerHTML=`<div class="center celebrate"><div class="result-icon" style="font-size:4rem">🎉</div><div class="big-msg">CHALLENGE COMPLETE!</div><p class="muted">Wild energy! You did it!</p></div>`;
+   setActions(backHomeButton());
+  }
+ },1000);
+}
+function denyDare(){
+ stopTimer();busy=false;
+ $("gameContent").innerHTML=`<div class="center celebrate"><div class="result-icon" style="font-size:4rem">🌧️</div><div class="big-msg">Oops!</div><p class="muted">Better luck next time!</p></div>`;
+ setActions(backHomeButton());
+}
+
+/* =====================================================
+   PART 3 — MEMORY MATCH + IMPOSTER + CLOSING TAGS
+   ===================================================== */
+
+/* ==================== MEMORY MATCH ==================== */
+
+const animalDeck = [
+  ["🐱","Cat"],["🐶","Dog"],["🦊","Fox"],["🐼","Panda"],
+  ["🐸","Frog"],["🦁","Lion"],["🐵","Monkey"],["🐰","Rabbit"],
+  ["🐻","Bear"],["🐨","Koala"],["🐯","Tiger"],["🐮","Cow"],
+  ["🐷","Pig"],["🐸","Frog"],["🐧","Penguin"],["🦋","Butterfly"],
+  ["🐢","Turtle"],["🐬","Dolphin"],["🦉","Owl"],["🦄","Unicorn"],
+  ["🐝","Bee"],["🦒","Giraffe"],["🐘","Elephant"],["🦓","Zebra"],
+  ["🦖","Dinosaur"],["🐙","Octopus"],["🦀","Crab"],["🐳","Whale"],
+  ["🦜","Parrot"],["🦔","Hedgehog"],["🐺","Wolf"],["🦥","Sloth"]
+];
+
+const memoryPairs = [4, 6, 8, 10, 12];
+
+function memoryIntro() {
+  stopTimer();
+  intro("memory", stage, diffs[stage - 1], memoryStart);
+}
+
+function memoryStart() {
+  stopTimer();
+
+  const pairCount = memoryPairs[stage - 1];
+  const available = [...new Map(animalDeck.map(a => [a[0], a])).values()];
+  const shuffledAnimals = available.sort(() => Math.random() - 0.5);
+  const selected = shuffledAnimals.slice(0, pairCount);
+
+  const cards = selected.flatMap((animal, index) => [
+    { id: index * 2, pair: index, emoji: animal[0], name: animal[1] },
+    { id: index * 2 + 1, pair: index, emoji: animal[0], name: animal[1] }
+  ]).sort(() => Math.random() - 0.5);
+
+  gameState = {
+    ...gameState,
+    cards,
+    flipped: [],
+    matched: [],
+    lock: false,
+    moves: 0
+  };
+
+  $("stage").textContent =
+    `STAGE ${String(stage).padStart(2, "0")} / 05 · ${pairCount} PAIRS`;
+
+  renderMemory();
+
+  startTimer(60, () => {
+    stopTimer();
+    gameOver("Time ran out! Try again next time.");
+  });
+}
+
+function renderMemory() {
+  const cards = gameState.cards || [];
+  const flipped = gameState.flipped || [];
+  const matched = gameState.matched || [];
+
+  $("gameContent").innerHTML = `
+    <div class="center">
+      <p class="muted">Find all matching animal pairs!</p>
+      <p class="muted">Pairs: ${matched.length / 2} / ${cards.length / 2}
+        · Moves: ${gameState.moves || 0}</p>
+      <div class="memory-grid" style="
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        gap:10px;
+        max-width:520px;
+        margin:16px auto;">
+        ${cards.map((card, index) => {
+          const isOpen = flipped.includes(index) || matched.includes(index);
+          const isMatched = matched.includes(index);
+
+          return `
+            <button
+              class="picture"
+              style="
+                min-height:76px;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                gap:5px;
+                border-radius:12px;
+                transition:transform .25s, opacity .25s;
+                ${isMatched ? "opacity:.35;transform:scale(.92);" : ""}
+              "
+              onclick="flipMemory(${index})"
+              ${isOpen || gameState.lock ? "disabled" : ""}>
+              <span class="emoji" style="font-size:30px">
+                ${isOpen ? card.emoji : "❔"}
+              </span>
+              <span style="font-size:12px">
+                ${isOpen ? card.name : "Tap"}
+              </span>
+            </button>
+          `;
+        }).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function flipMemory(index) {
+  if (
+    activeGame !== "memory" ||
+    gameState.lock ||
+    gameState.flipped.includes(index) ||
+    gameState.matched.includes(index)
+  ) return;
+
+  gameState.flipped.push(index);
+  renderMemory();
+
+  if (gameState.flipped.length !== 2) return;
+
+  gameState.moves++;
+  gameState.lock = true;
+
+  const [first, second] = gameState.flipped;
+  const cards = gameState.cards;
+
+  if (cards[first].pair === cards[second].pair) {
+    gameState.matched.push(first, second);
+    gameState.flipped = [];
+    gameState.lock = false;
+
+    renderMemory();
+    confettiBurst(8);
+
+    if (gameState.matched.length === cards.length) {
+      stopTimer();
+
+      if (stage >= 5) {
+        setTimeout(() => {
+          if (activeGame === "memory") winAll("MEMORY MASTER");
+        }, 700);
+      } else {
+        $("gameContent").insertAdjacentHTML(
+          "beforeend",
+          `<div class="notice celebrate">STAGE COMPLETE!</div>`
+        );
+
+        setActions(`
+          <button class="primary"
+            onclick="stage++;memoryIntro()">NEXT STAGE</button>
+        `);
+      }
+    }
+  } else {
+    setTimeout(() => {
+      if (activeGame !== "memory") return;
+
+      gameState.flipped = [];
+      gameState.lock = false;
+      renderMemory();
+    }, 850);
+  }
+}
+
+
+/* ==================== IMPOSTER QUESTION BANK ==================== */
+
+/*
+   Five categories.
+   Each category creates 30 distinct option combinations.
+   Total: 150 questions.
+*/
+
+const imposterPools = [
+  {
+    category: "Animals",
+    group: [
+      ["🐱","Cat"],["🐶","Dog"],["🦁","Lion"],["🐻","Bear"],
+      ["🐰","Rabbit"],["🦊","Fox"],["🐼","Panda"],["🐨","Koala"],
+      ["🐯","Tiger"],["🐴","Horse"],["🐮","Cow"],["🐑","Sheep"]
+    ],
+    odd: [
+      ["🐸","Frog"],["🐧","Penguin"],["🐢","Turtle"],["🐍","Snake"],
+      ["🐟","Fish"],["🦅","Eagle"],["🦆","Duck"],["🦋","Butterfly"],
+      ["🐊","Crocodile"],["🦈","Shark"],["🐙","Octopus"],["🦀","Crab"]
+    ],
+    why: "The other four pictures are mammals. This picture belongs to a different animal group."
+  },
+  {
+    category: "Food",
+    group: [
+      ["🍎","Apple"],["🍌","Banana"],["🍇","Grapes"],["🍊","Orange"],
+      ["🍓","Strawberry"],["🍐","Pear"],["🍑","Peach"],["🥭","Mango"],
+      ["🍍","Pineapple"],["🍉","Watermelon"],["🍒","Cherries"],["🥝","Kiwi"]
+    ],
+    odd: [
+      ["🥕","Carrot"],["🥔","Potato"],["🥦","Broccoli"],["🌽","Corn"],
+      ["🥒","Cucumber"],["🧅","Onion"],["🧄","Garlic"],["🍆","Eggplant"],
+      ["🥬","Lettuce"],["🫑","Pepper"],["🍄","Mushroom"],["🫛","Peas"]
+    ],
+    why: "The other four are fruits. This picture is a vegetable."
+  },
+  {
+    category: "Transport",
+    group: [
+      ["🚗","Car"],["🚌","Bus"],["🚕","Taxi"],["🚙","SUV"],
+      ["🏎️","Race car"],["🚓","Police car"],["🚑","Ambulance"],["🚒","Fire engine"],
+      ["🚐","Van"],["🛻","Pickup"],["🛵","Scooter"],["🏍️","Motorcycle"]
+    ],
+    odd: [
+      ["✈️","Airplane"],["🚁","Helicopter"],["🛩️","Small plane"],["🚀","Rocket"],
+      ["🚤","Speedboat"],["⛵","Sailboat"],["🛳️","Cruise ship"],["🚢","Ship"],
+      ["🛶","Canoe"],["🚂","Train"],["🚠","Cable car"],["🛸","UFO"]
+    ],
+    why: "The other four are road vehicles. This one uses a different form of transport."
+  },
+  {
+    category: "Everyday objects",
+    group: [
+      ["✏️","Pencil"],["🖊️","Pen"],["🖍️","Crayon"],["🖌️","Paintbrush"],
+      ["📏","Ruler"],["📐","Set square"],["📎","Paper clip"],["📌","Pushpin"],
+      ["✂️","Scissors"],["📒","Notebook"],["📓","Journal"],["🖋️","Ink pen"]
+    ],
+    odd: [
+      ["🍳","Frying pan"],["🥄","Spoon"],["🍴","Fork"],["🔪","Kitchen knife"],
+      ["🥣","Bowl"],["🥤","Cup"],["🫖","Teapot"],["🧂","Salt shaker"],
+      ["🍽️","Plate"],["🥢","Chopsticks"],["🧈","Butter"],["🧊","Ice cube"]
+    ],
+    why: "The other four are stationery or drawing supplies. This item has a different everyday use."
+  },
+  {
+    category: "Nature and science",
+    group: [
+      ["🌧️","Rain"],["🌨️","Snowfall"],["⛈️","Thunderstorm"],["🌪️","Tornado"],
+      ["🌫️","Fog"],["🌬️","Wind"],["❄️","Snowflake"],["🌈","Rainbow"],
+      ["☀️","Sunshine"],["🌦️","Showers"],["🌩️","Lightning storm"],["💨","Gust"]
+    ],
+    odd: [
+      ["🌋","Volcano"],["🪨","Rock"],["⛰️","Mountain"],["🌍","Earth"],
+      ["🌙","Moon"],["🪐","Planet"],["⭐","Star"],["☄️","Comet"],
+      ["💎","Gemstone"],["🦴","Fossil"],["🛰️","Satellite"],["🪸","Coral"]
+    ],
+    why: "The other four are weather or atmospheric phenomena. This picture belongs to a different natural category."
+  }
+];
+
+/* Create 30 unique combinations for each category. */
+function buildImposterBank() {
+  const bank = [];
+
+  imposterPools.forEach((pool, categoryIndex) => {
+    const combinations = [];
+
+    for (let a = 0; a < pool.group.length - 3; a++) {
+      for (let b = a + 1; b < pool.group.length - 2; b++) {
+        for (let c = b + 1; c < pool.group.length - 1; c++) {
+          for (let d = c + 1; d < pool.group.length; d++) {
+            combinations.push([
+              pool.group[a],
+              pool.group[b],
+              pool.group[c],
+              pool.group[d]
+            ]);
+          }
+        }
+      }
+    }
+
+    // Shuffle combinations, then take 30 unique sets.
+    combinations.sort(() => Math.random() - 0.5);
+
+    for (let n = 0; n < 30; n++) {
+      const oddItem = pool.odd[n % pool.odd.length];
+
+      bank.push({
+        id: `zapzoo-${categoryIndex}-${n}`,
+        category: pool.category,
+        q: `Which picture is the odd one out?`,
+        a: [...combinations[n], oddItem],
+        odd: 4,
+        why: pool.why
+      });
+    }
+  });
+
+  return bank;
+}
+
+const imposterQuestions = buildImposterBank();
+const IMPOSTER_STORAGE_KEY = "zapzoo_imposter_used_v1";
+
+function getUsedImposterQuestions() {
+  try {
+    return new Set(
+      JSON.parse(localStorage.getItem(IMPOSTER_STORAGE_KEY) || "[]")
+    );
+  } catch (error) {
+    return new Set();
+  }
+}
+
+function saveUsedImposterQuestions(used) {
+  try {
+    localStorage.setItem(
+      IMPOSTER_STORAGE_KEY,
+      JSON.stringify([...used])
+    );
+  } catch (error) {
+    // The game can still be played if browser storage is unavailable.
+  }
+}
+
+function selectImposterQuestion() {
+  let used = getUsedImposterQuestions();
+
+  // Reset only after all 150 IDs have been used.
+  if (used.size >= 150) {
+    used = new Set();
+    saveUsedImposterQuestions(used);
+  }
+
+  const available = imposterQuestions.filter(q => !used.has(q.id));
+
+  const selected =
+    available[Math.floor(Math.random() * available.length)];
+
+  used.add(selected.id);
+  saveUsedImposterQuestions(used);
+
+  return selected;
+}
+
+function imposterIntro() {
+  stopTimer();
+  intro("imposter", stage, diffs[stage - 1], imposterStart);
+}
+
+function imposterStart() {
+  stopTimer();
+
+  const q = selectImposterQuestion();
+
+  gameState.question = q;
+  gameState.answered = false;
+
+  $("stage").textContent =
+    `STAGE ${String(stage).padStart(2, "0")} / 05 · ` +
+    `${q.category.toUpperCase()}`;
+
+  renderImposter();
+
+  startTimer(30, () => {
+    if (activeGame !== "imposter" || gameState.answered) return;
+
+    gameState.answered = true;
+    stopTimer();
+    revealImposter(false, -1, true);
+  });
+}
+
+function renderImposter() {
+  const q = gameState.question;
+
+  const order = q.a
+    .map((item, index) => ({ item, index }))
+    .sort(() => Math.random() - 0.5);
+
+  gameState.displayOrder = order;
+
+  $("gameContent").innerHTML = `
+    <div class="center">
+      <p class="muted">${q.q}</p>
+      <div class="grid-five" style="
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
+        max-width:520px;
+        margin:16px auto;">
+        ${order.map(({ item }, index) => `
+          <button class="picture"
+            onclick="chooseImposter(${index})">
+            <span class="emoji" style="font-size:36px">${item[0]}</span>
+            <span>${item[1]}</span>
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function chooseImposter(displayIndex) {
+  if (activeGame !== "imposter" || gameState.answered) return;
+
+  gameState.answered = true;
+  stopTimer();
+
+  const originalIndex = gameState.displayOrder[displayIndex].index;
+
+  revealImposter(originalIndex === gameState.question.odd, displayIndex, false);
+}
+
+function revealImposter(correct, displayIndex, timedOut) {
+  const q = gameState.question;
+  const buttons = [...document.querySelectorAll(".picture")];
+
+  buttons.forEach((button, index) => {
+    const original = gameState.displayOrder[index].index;
+
+    if (original === q.odd) {
+      button.classList.add("correct");
+    } else if (index === displayIndex) {
+      button.classList.add("wrong");
+    }
+
+    button.disabled = true;
+  });
+
+  const resultText = timedOut
+    ? "Time's up!"
+    : correct
+      ? "Correct!"
+      : "Not quite!";
+
+  $("gameContent").insertAdjacentHTML("beforeend", `
+    <div class="notice celebrate">
+      <b>${resultText}</b><br>
+      ${q.why}
+    </div>
+  `);
+
+  if (correct && !timedOut) {
+    confettiBurst(14);
+
+    if (stage >= 5) {
+      setTimeout(() => {
+        if (activeGame === "imposter") winAll("IMPOSTER MASTER");
+      }, 1100);
+    } else {
+      setActions(`
+        <button class="primary"
+          onclick="stage++;imposterIntro()">NEXT STAGE</button>
+      `);
+    }
+  } else {
+    setTimeout(() => {
+      if (activeGame === "imposter") {
+        gameOver(
+          timedOut
+            ? "Time ran out. Better luck next time!"
+            : "Oops! Better luck next time!"
+        );
+      }
+    }, 1800);
+  }
+}
+
+/* ==================== END OF PART 3 ==================== */
